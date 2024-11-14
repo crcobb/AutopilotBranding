@@ -28,6 +28,7 @@
   </RemoveApps>
   <OneDriveSetup>https://go.microsoft.com/fwlink/?linkid=844652</OneDriveSetup>
   <AddFeatures>
+
     <Feature>Microsoft.Windows.Sense.Client~~~~</Feature>
     <!-- If you do add a language pack, make sure you add these language add-ons for each one.
     <Feature>Language.Basic~~~es-ES~0.0.1.0</Feature>
@@ -44,15 +45,15 @@
   </AddFeatures>
   <Language></Language>
   <!-- If you want to set a language, customize and reference this file: <Language>Language.xml</Language> -->
-  <DefaultApps>Associations.xml</DefaultApps>
+  <DefaultApps></DefaultApps>
   <RegisteredOwner>Autopilot User</RegisteredOwner>
-  <RegisteredOrganization>Contoso</RegisteredOrganization>
+  <RegisteredOrganization>Douglas J</RegisteredOrganization>
   <OEMInfo>
-    <Manufacturer>Contoso</Manufacturer>
+    <Manufacturer>Douglas J</Manufacturer>
     <Model>PC</Model>
-    <Logo>Contoso.bmp</Logo>
-    <SupportPhone>+1 800-555-1212</SupportPhone>
-    <SupportHours>8am-5pm PST</SupportHours>
-    <SupportURL>http://www.contoso.com</SupportURL>
+    <Logo>DouglasJ.bmp</Logo>
+    <SupportPhone>+1 517-853-3911</SupportPhone>
+    <SupportHours>8am-5pm EST</SupportHours>
+    <SupportURL>mailto://helpdesk@douglasj.com</SupportURL>
   </OEMInfo>
 </Config>
