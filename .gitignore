@@ -3,6 +3,8 @@
 ##
 ## Get latest from https://github.com/github/gitignore/blob/master/VisualStudio.gitignore
 
+AutopilotBranding.intunewin
+
 # User-specific files
 *.suo
 *.user
@@ -327,3 +329,4 @@ ASALocalRun/
 # MFractors (Xamarin productivity tool) working folder 
 .mfractor/
 /AutopilotBranding/LPs/Microsoft-Windows-Client-Language-Pack_x64_es-es.cab
+
