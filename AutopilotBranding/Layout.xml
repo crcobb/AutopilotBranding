@@ -5,7 +5,6 @@
       <defaultlayout:StartLayout GroupCellWidth="6">
         <start:Group Name="Productivity">
           <start:Tile Size="2x2" Column="0" Row="0" AppUserModelID="Microsoft.MicrosoftEdge_8wekyb3d8bbwe!MicrosoftEdge" />
-          <start:Tile Size="2x2" Column="2" Row="0" AppUserModelID="Microsoft.WindowsStore_8wekyb3d8bbwe!App" />
         </start:Group>
       </defaultlayout:StartLayout>
     </StartLayoutCollection>
