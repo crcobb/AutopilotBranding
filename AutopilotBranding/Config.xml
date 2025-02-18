@@ -25,6 +25,11 @@
     <App>Microsoft.ZuneVideo</App>
     <App>Clipchamp.Clipchamp</App>
     <App>Microsoft.PowerAutomateDesktop</App>
+    <App>Microsoft.XboxGameOverlay</App>
+    <App>Microsoft.XboxGamingOverlay</App>
+    <App>Microsoft.Xbox.TCUI</App>
+    <App>Microsoft.XboxIdentityProvider</App>
+    <App>Microsoft.XboxSpeachToTextOverlay</App>
   </RemoveApps>
   <OneDriveSetup>https://go.microsoft.com/fwlink/?linkid=844652</OneDriveSetup>
   <AddFeatures>
