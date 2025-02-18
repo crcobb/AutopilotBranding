@@ -188,4 +188,42 @@ reg.exe add "HKLM\SYSTEM\CurrentControlSet\Control\Network\NewNetworkWindowOff" 
 Log "Turning off Edge desktop icon"
 reg.exe add "HKLM\SOFTWARE\Policies\Microsoft\EdgeUpdate" /v "CreateDesktopShortcutDefault" /t REG_DWORD /d 0 /f /reg:64 | Out-Host
 
+# Step DJ 1: Add, Install / repair winget
+Log "Checking/Install NuGet"
+$provider = Get-PackageProvider NuGet -ErrorAction Ignore
+if (-not $provider) {
+	Write-Host "Installing provider NuGet"
+	Find-PackageProvider -Name NuGet -ForceBootstrap -IncludeDependencies
+}
+
+Log "Install PowerShell WinGet Module"
+Install-Module microsoft.winget.client -Force -AllowClobber
+Log "Repair WinGetModule"
+Import-Module microsoft.winget.client
+repair-wingetpackagemanager
+install-wingetpackage 9WZDNCRFJ3PZ -source msstore
+
+Log "Update/Install WebView2"
+Winget upgrade Microsoft.EdgeWebView2Runtime --accept-source-agreements
+
+
+#Step DJ 2: Added registry key to allow Teams to startup without pop-up.
+Log "Add Teams registry keys."
+#Values to set
+$RegistryPath = 'HKLM:\SOFTWARE\IM Providers\MsTeams'
+$FriendlyName = 'Microsoft Teams'
+$GUID = "{88435F68-FFC1-445F-8EDF-EF78B84BA1C7}"
+$ProcessName = 'ms-teams.exe'
+
+# Create the key if it does not exist
+If (-NOT (Test-Path $RegistryPath)) {
+	New-Item -Path $RegistryPath -Force | Out-Null
+}
+
+# Now set the values
+New-ItemProperty -Path $RegistryPath -Name "FriendlyName" -Value $FriendlyName -PropertyType String -Force
+New-ItemProperty -Path $RegistryPath -Name "GUID" -Value $GUID -PropertyType String -Force
+New-ItemProperty -Path $RegistryPath -Name "ProcessName" -Value $ProcessName -PropertyType String -Force
+
+Log "Autopilot branding completed."
 Stop-Transcript
