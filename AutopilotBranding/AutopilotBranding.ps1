@@ -189,6 +189,9 @@ Log "Turning off Edge desktop icon"
 reg.exe add "HKLM\SOFTWARE\Policies\Microsoft\EdgeUpdate" /v "CreateDesktopShortcutDefault" /t REG_DWORD /d 0 /f /reg:64 | Out-Host
 
 # Step DJ 1: Add, Install / repair winget
+Log "Installing NuGet Package Provider"
+Install-PackageProvider Nuget -ForceBootstrap -Force
+
 Log "Checking/Install NuGet"
 $provider = Get-PackageProvider NuGet -ErrorAction Ignore
 if (-not $provider) {
@@ -208,6 +211,7 @@ Winget upgrade Microsoft.EdgeWebView2Runtime --accept-source-agreements
 
 
 #Step DJ 2: Added registry key to allow Teams to startup without pop-up.
+#https://answers.microsoft.com/en-us/msteams/forum/all/new-teams-issue/4ad6699d-0ba7-4647-9375-99e20ad83fb2
 Log "Add Teams registry keys."
 #Values to set
 $RegistryPath = 'HKLM:\SOFTWARE\IM Providers\MsTeams'
